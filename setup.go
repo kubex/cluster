@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-const Topic = "my-topic"
+const InternalTopic = "_cluster"
 
 var NServer *server.Server
 
