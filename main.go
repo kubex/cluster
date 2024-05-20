@@ -1,6 +1,9 @@
 package cluster
 
-import "github.com/nats-io/nats-server/v2/server"
+import (
+	"github.com/nats-io/nats-server/v2/server"
+	"time"
+)
 
 type Instance struct {
 	natsPort        int
@@ -37,4 +40,8 @@ func Create(options ...Option) (*Instance, error) {
 
 func Run(background bool) error {
 	return run(background)
+}
+
+func WaitTillReady() {
+	NServer.ReadyForConnections(4 * time.Second)
 }
